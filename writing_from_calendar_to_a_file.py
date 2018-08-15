@@ -3,6 +3,7 @@ from os import path
 import shutil
 import calendar
 
+
 #line 1 to 4 imports all the necessary modules needed for running our code
 
 #this class has three functions..one for acessing the calendar details and saving to a file, the other for reading the files and the
@@ -27,11 +28,14 @@ class get_calendar_to_files():
                print(contents)
                files.close()
                
-         def copyFilesCreated():
+         def copyFilesCreated(self):
               if path.exists('leap_years_store.txt'):
 		              src = path.realpath('leap_years_store.txt')
 		              real_path = src + '.bak'
 		              shutil.copy(src,real_path)
+	def rename_files(self):
+		os.rename('leap_years_store.txt', 'leap_years_file')
+		
                   
 #this fundtion will be used to run our instantiate our class and the run all the functions
 
@@ -40,6 +44,7 @@ def main() :
     cal_class.openFiles()
     cal_class.getCalendar()
     cal_class.copyFilesCreated()
+    cal_class.rename_files()
    
 
               
